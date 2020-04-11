@@ -27,12 +27,18 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <Button name="afasd" title="asdas" type="submit"/>
   </div>
 </template>
 
 <script>
+  import Button from './Button';
+
 export default {
   name: 'HelloWorld',
+  components: {
+    Button
+  },
   props: {
     msg: String
   }
