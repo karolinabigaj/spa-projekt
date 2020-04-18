@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button :name="name" :type="type">title</button>
+        <b-button :name="name" variant="info" class="standardButton">{{title}}</b-button>
     </div>
 </template>
 
@@ -16,5 +16,12 @@
 </script>
 
 <style>
+    .standardButton {
+        margin: 40px 0;
+        width: 300px;
+        height: 150px;
+        font-size: 40px !important;
+        border-radius: 10px !important;
+    }
 
 </style>
