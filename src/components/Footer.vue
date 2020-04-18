@@ -12,9 +12,7 @@
     export default {
         name: 'Footer',
         props: {
-            name: String,
             title: String,
-            type: String
         }
     }
 </script>
@@ -30,7 +28,7 @@
         border-top: 1px solid black;
     }
     span{
-        padding: 3vw;
+        padding-left: 3vw;
     }
     a {
         color: #71C9CE !important;

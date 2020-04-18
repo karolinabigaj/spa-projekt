@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-button :name="name" variant="info" class="standardButton">{{title}}</b-button>
+        <b-button :name="name" variant="info" class="standardButton" v-on:click="onclick">{{title}}</b-button>
     </div>
 </template>
 
@@ -10,7 +10,8 @@
         props: {
             name: String,
             title: String,
-            type: String
+            type: String,
+            onclick: Function
         }
     }
 </script>
