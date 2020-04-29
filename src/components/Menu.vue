@@ -31,14 +31,14 @@ export default {
 }
 button {
   margin: 2% auto 2% auto;
-  width: 200px;
+  width: 230px;
   height: 200px;
   text-align: center;
   display: flex;
   justify-content: center;
 }
 img {
-  width: 200px;
+  width: 230px;
   height: 200px;
   text-align: center;
   margin: 0% auto 0% auto;

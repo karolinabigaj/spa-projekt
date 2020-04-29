@@ -1,10 +1,10 @@
 <template>
-  <b-container fluid="lg">
+  <div>
     <TopBar />
     <Menu />
     <Chart></Chart>
     <Footer />
-  </b-container>
+  </div>
 </template>
 
 <script>
