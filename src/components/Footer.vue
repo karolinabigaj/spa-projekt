@@ -12,25 +12,15 @@
 
 <script>
 export default {
-  name: "Footer",
-  props: {
-    title: String
-  }
+  name: "Footer"
 };
 </script>
 
-<style>
+<style scoped>
 footer {
-  max-height: 8vh;
-  min-height: 8vh;
   width: 100%;
-  display: flex !important;
-  justify-content: flex-start;
-  align-items: center;
-  border-top: 1px solid black;
-}
-span {
-  padding-left: 3vw;
+  text-align: center;
+  padding: 10px;
 }
 a {
   color: #71c9ce !important;
