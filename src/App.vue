@@ -2,7 +2,7 @@
   <div>
     <TopBar />
     <Menu />
-    <Chart></Chart>
+    <router-view></router-view>
     <Footer />
   </div>
 </template>
@@ -11,15 +11,13 @@
 import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 import Menu from "@/components/Menu";
-import Chart from "@/components/Chart";
 
 export default {
   name: "Main",
   components: {
     TopBar,
     Footer,
-    Menu,
-    Chart
+    Menu
   },
   data() {
     return {

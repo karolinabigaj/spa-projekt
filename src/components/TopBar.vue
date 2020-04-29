@@ -1,5 +1,7 @@
 <template>
-  <img id="money" class="img-fluid" src="../assets/money.svg" />
+  <header>
+    <img id="money" class="img-fluid" src="../assets/money.svg" />
+  </header>
 </template>
 
 <script>
@@ -8,14 +10,17 @@ export default {
 };
 </script>
 
-<style>
-#money {
-  display: flex;
-  justify-content: flex-start;
-  max-height: 8vh;
-  min-height: 8vh;
+<style scoped>
+header {
   width: 100%;
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+#money {
+  justify-content: flex-start;
+  height: 100px;
   border-bottom: 1px solid black;
-  padding: 0.7vh;
+  padding: 10px;
+  width: 100%;
 }
 </style>
