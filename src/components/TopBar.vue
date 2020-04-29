@@ -1,28 +1,21 @@
 <template>
-    <div class="topBar">
-        <img id="money" src="../assets/money.svg"/>
-    </div>
+  <img id="money" class="img-fluid" src="../assets/money.svg" />
 </template>
 
 <script>
-    export default {
-        name: 'TopBar',
-        props: {
-            name: String,
-            title: String,
-            type: String
-        }
-    }
+export default {
+  name: "TopBar"
+};
 </script>
 
 <style>
-    .topBar{
-        display: flex;
-        justify-content: flex-start;
-        max-height: 8vh;
-        min-height: 8vh;
-        width: 100%;
-        border-bottom: 1px solid black;
-        padding: 0.7vh;
-    }
+#money {
+  display: flex;
+  justify-content: flex-start;
+  max-height: 8vh;
+  min-height: 8vh;
+  width: 100%;
+  border-bottom: 1px solid black;
+  padding: 0.7vh;
+}
 </style>

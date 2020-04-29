@@ -1,36 +1,28 @@
 <template>
-  <div class="container">
-    <TopBar/>
-    <div class="content">
-      <div class="menu">
-        <Button name="converter" title="Converter" :onclick="openCurrency" />
-        <Button name="charts" title="Currency charts" :onclick="openChart"/>
-      </div>
-      <div class="mainImage">
-        <img id="equity" src="./assets/equity.svg"/>
-      </div>
-    </div>
-    <Footer/>
-  </div>
+  <b-container fluid="lg">
+    <TopBar />
+    <Menu />
+    <Footer />
+  </b-container>
 </template>
 
 <script>
-  import Button from '@/components/Button';
-  import Footer from "@/components/Footer";
-  import TopBar from "@/components/TopBar";
+import Footer from "@/components/Footer";
+import TopBar from "@/components/TopBar";
+import Menu from "@/components/Menu";
 
 export default {
-  name: 'Main',
+  name: "Main",
   components: {
     TopBar,
     Footer,
-    Button
+    Menu
   },
   data() {
     return {
       test: "heheszki",
-      test2: "orzeszki",
-    }
+      test2: "orzeszki"
+    };
   },
   methods: {
     openCurrency() {
@@ -39,38 +31,9 @@ export default {
     openChart() {
       console.log(this.test2);
     }
-  },
-}
+  }
+};
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
-  .container{
-    max-width: 1600px;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    min-width: 1200px;
-  }
-  .content{
-    min-height: 84vh;
-    display: flex;
-    justify-content: center;
-  }
-  .menu{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 2;
-    justify-content: center;
-    align-items: center;
-  }
-  .mainImage{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 3;
-    justify-content: center;
-    align-items: center;
-  }
-  #equity{
-    height: 80%;
-  }
 </style>
