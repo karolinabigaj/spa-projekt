@@ -71,10 +71,15 @@ export default {
   },
   methods: {
     converter() {
+      if (isNaN(this.input) || from == null || to == null) {
+        this.result = "Podana zła wartość";
+        return this.result;
+      }
       let input = parseInt(this.input);
       let from = this.rates[this.fromCurrency];
       let to = this.rates[this.toCurrency];
       this.result = input * (to / from).toFixed(4);
+      return this.result;
     }
   }
 };
