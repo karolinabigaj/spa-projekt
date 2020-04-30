@@ -6,7 +6,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import "vue-chartjs"; // npm install vue-chartjs chart.js --save
+import "vue-chartjs";             // npm install vue-chartjs chart.js --save
 import Converter from './components/Converter.vue';
 import ChartContainer from './components/ChartContainer.vue';
 

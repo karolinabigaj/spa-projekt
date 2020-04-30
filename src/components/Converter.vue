@@ -1,18 +1,97 @@
 <template>
   <div>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin convallis tellus risus, et commodo purus interdum sit amet. Fusce placerat, mi nec sagittis accumsan, ex purus dapibus erat, mattis aliquam elit nulla vitae est. Nulla semper tellus vel auctor fringilla. Suspendisse nisi dui, tempus nec dui accumsan, scelerisque fringilla libero. Ut bibendum arcu et elit venenatis maximus. Cras quis sodales massa. Nulla vestibulum bibendum tristique. Quisque in varius tortor. Sed eget ultricies lorem, id consequat quam.
-      Donec placerat nisl at sapien dignissim volutpat. Donec dignissim ultricies purus et imperdiet. Phasellus rhoncus nisi blandit tellus molestie, ut commodo ipsum commodo. Donec lobortis venenatis nunc a bibendum. Integer et semper neque. Nunc posuere mauris sit amet velit viverra, ut tristique elit gravida. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin ut congue felis, vitae rutrum justo. Integer dui tellus, ultricies at euismod ut, efficitur ac dolor. Vestibulum orci dui, tristique id arcu non, consequat tincidunt augue. Aliquam a ultrices massa. Etiam quam orci, sodales in elit at, tempus maximus est. Mauris nec mi in odio consectetur ultrices ut non lorem.
-      Aenean dignissim pharetra iaculis. Vestibulum euismod quam ut magna accumsan, ac tincidunt dui sagittis. Proin ut purus in tellus accumsan vulputate a sed lorem. In est leo, consectetur a cursus et, vestibulum vel odio. Aenean in orci imperdiet, feugiat ex quis, posuere mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam sagittis ipsum eget rutrum sagittis. Nunc arcu magna, convallis a facilisis nec, hendrerit eget augue. Curabitur interdum sapien velit. Sed consequat diam id ornare ornare. Nunc rutrum ornare quam nec convallis. Phasellus fringilla ligula in suscipit ornare. Integer semper gravida suscipit. Proin ultricies nibh nec sapien commodo rhoncus. Aliquam fringilla, lacus ut rutrum viverra, est risus gravida lorem, a mollis nunc risus sed mauris. Curabitur sed arcu lectus.
-    </p>
+    <b-form id="form" inline>
+      <label class="mr-sm-2" for="inline-form-custom-select-pref">Wybierz walute:</label>
+      <div>
+        <b-form-input v-model="input"></b-form-input>
+        <b-form-select
+          id="inline-form-custom-select-pref"
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="fromCurrency"
+          :options="options"
+          :value="null"
+        ></b-form-select>
+        <span>&#8826;&equals;&equals;&#8827;</span>
+        <b-form-select
+          id="inline-form-custom-select-pref"
+          class="mb-2 mr-sm-2 mb-sm-0"
+          v-model="toCurrency"
+          :options="options"
+          :value="null"
+        ></b-form-select>
+      </div>
+      <br />
+      <b-button @click="converter()" variant="primary">Calculate</b-button>
+      <div>
+        <strong>Wartość:</strong>
+        {{result}}
+      </div>
+    </b-form>
+
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "Converter"
+  name: "Converter",
+  data() {
+    return {
+      options: [
+        { value: "null", text: "Wybierz walute" },
+        { value: "EUR", text: "Euro" },
+        { value: "USD", text: "Dolar amerykański" },
+        { value: "JPY", text: "Jen japoński" },
+        { value: "AUD", text: "Dolar australijski" },
+        { value: "CAD", text: "Dolar kanadyjski" },
+        { value: "CHF", text: "Frank szwajcarski" },
+        { value: "CNY", text: "Yuan chiński" },
+        { value: "SEK", text: "Szwedzka korona" },
+        { value: "NZD", text: "Dolar nowozelandzki" },
+        { value: "PLN", text: "Złoty polski" }
+      ],
+      input: "",
+      fromCurrency: "null",
+      toCurrency: "null",
+      result: 0,
+      rates: {}
+    };
+  },
+  mounted() {
+    axios.get("https://api.exchangeratesapi.io/latest").then(response => {
+      this.info = response.data.rates;
+      for (let [key, value] of Object.entries(this.info)) {
+        this.rates[key] = value;
+      }
+      this.rates["EUR"] = 1; // Api Based on euro
+    });
+  },
+  methods: {
+    converter() {
+      if (
+        isNaN(this.input) ||
+        this.fromCurrency == null ||
+        this.toCurrency == null
+      ) {
+        this.result = "Podana zła wartość";
+        return this.result;
+      }
+      let input = parseInt(this.input);
+      let from = this.rates[this.fromCurrency];
+      let to = this.rates[this.toCurrency];
+      this.result = input * (to / from).toFixed(4);
+      return this.result;
+    }
+  }
 };
 </script>
 
 <style scoped>
+#form {
+  display: block;
+  text-align: center;
+}
 </style>
