@@ -1,35 +1,49 @@
 <template>
   <div>
-    <b-form id="form" inline>
-      <label class="mr-sm-2" for="inline-form-custom-select-pref">Wybierz walute:</label>
-      <div>
-        <b-form-input v-model="input"></b-form-input>
-        <b-form-select
-          id="inline-form-custom-select-pref"
-          class="mb-2 mr-sm-2 mb-sm-0"
-          v-model="fromCurrency"
-          :options="options"
-          :value="null"
-        ></b-form-select>
-        <b-button @click="changePlaces()">&#8826;&equals;&equals;&#8827;</b-button>
-        <b-form-select
-          id="inline-form-custom-select-pref"
-          class="mb-2 mr-sm-2 mb-sm-0"
-          v-model="toCurrency"
-          :options="options"
-          :value="null"
-        ></b-form-select>
-      </div>
-      <br />
-      <div v-show="convertedCurrency">
-        <strong>Wartość:</strong>
-        {{ convertedCurrency }}
-      </div>
-    </b-form>
+    <b-container fluid class="form">
+      <!-- <b-form class="form" inline> -->
+      <label md class="mr-sm-2">Wybierz walute:</label>
+      <b-row>
+        <b-col md>
+          <b-form-input placeholder="Wprowadź wartość" v-model="input"></b-form-input>
+        </b-col>
+        <b-col md>
+          <b-form-select
+            class="mb-2 mr-sm-2 mb-sm-0"
+            v-model="fromCurrency"
+            :options="options"
+            :value="null"
+          ></b-form-select>
+        </b-col>
+        <b-col md>
+          <b-button
+            block
+            style="background-color: #17a2b8;"
+            @click="changePlaces()"
+          >&#8826;&equals;&equals;&#8827;</b-button>
+        </b-col>
 
-    <br />
-    <br />
-    <br />
+        <b-col md>
+          <b-form-select
+            class="mb-2 mr-sm-2 mb-sm-0"
+            v-model="toCurrency"
+            :options="options"
+            :value="null"
+          ></b-form-select>
+        </b-col>
+
+        <br />
+        <b-col v-show="convertedCurrency">
+          <strong>Wartość:</strong>
+          {{ convertedCurrency }}
+        </b-col>
+      </b-row>
+      <!-- </b-form> -->
+
+      <br />
+      <br />
+      <br />
+    </b-container>
   </div>
 </template>
 
@@ -68,11 +82,15 @@ export default {
   },
   computed: {
     convertedCurrency() {
-      if (this.input.length == 0 || this.input.includes(",") || this.fromCurrency == this.toCurrency  ) {
+      if (
+        this.input.length == 0 ||
+        this.input.includes(",") ||
+        this.fromCurrency == this.toCurrency
+      ) {
         return 0;
       }
       let input = parseFloat(this.input);
-      if(isNaN(input)) {
+      if (isNaN(input)) {
         return 0;
       }
 
@@ -93,8 +111,7 @@ export default {
 </script>
 
 <style scoped>
-#form {
-  display: block;
+.form {
   text-align: center;
 }
 </style>
