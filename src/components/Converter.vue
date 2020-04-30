@@ -71,7 +71,11 @@ export default {
   },
   methods: {
     converter() {
-      if (isNaN(this.input) || from == null || to == null) {
+      if (
+        isNaN(this.input) ||
+        this.fromCurrency == null ||
+        this.toCurrency == null
+      ) {
         this.result = "Podana zła wartość";
         return this.result;
       }
