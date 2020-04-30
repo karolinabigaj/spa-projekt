@@ -11,7 +11,7 @@
           :options="options"
           :value="null"
         ></b-form-select>
-        <span>&#8826;&equals;&equals;&#8827;</span>
+        <b-button @click="changePlaces()">&#8826;&equals;&equals;&#8827;</b-button>
         <b-form-select
           id="inline-form-custom-select-pref"
           class="mb-2 mr-sm-2 mb-sm-0"
@@ -21,10 +21,9 @@
         ></b-form-select>
       </div>
       <br />
-      <b-button @click="converter()" variant="primary">Calculate</b-button>
-      <div>
+      <div v-show="convertedCurrency">
         <strong>Wartość:</strong>
-        {{result}}
+        {{ convertedCurrency }}
       </div>
     </b-form>
 
@@ -41,7 +40,6 @@ export default {
   data() {
     return {
       options: [
-        { value: "null", text: "Wybierz walute" },
         { value: "EUR", text: "Euro" },
         { value: "USD", text: "Dolar amerykański" },
         { value: "JPY", text: "Jen japoński" },
@@ -54,9 +52,8 @@ export default {
         { value: "PLN", text: "Złoty polski" }
       ],
       input: "",
-      fromCurrency: "null",
-      toCurrency: "null",
-      result: 0,
+      fromCurrency: "USD",
+      toCurrency: "EUR",
       rates: {}
     };
   },
@@ -66,24 +63,30 @@ export default {
       for (let [key, value] of Object.entries(this.info)) {
         this.rates[key] = value;
       }
-      this.rates["EUR"] = 1; // Api Based on euro
+      this.rates["EUR"] = 1; // Calculations based on EURO from
     });
   },
-  methods: {
-    converter() {
-      if (
-        isNaN(this.input) ||
-        this.fromCurrency == null ||
-        this.toCurrency == null
-      ) {
-        this.result = "Podana zła wartość";
-        return this.result;
+  computed: {
+    convertedCurrency() {
+      if (this.input.length == 0 || this.input.includes(",") || this.fromCurrency == this.toCurrency  ) {
+        return 0;
       }
-      let input = parseInt(this.input);
+      let input = parseFloat(this.input);
+      if(isNaN(input)) {
+        return 0;
+      }
+
       let from = this.rates[this.fromCurrency];
       let to = this.rates[this.toCurrency];
-      this.result = input * (to / from).toFixed(4);
-      return this.result;
+
+      return (input * (to / from)).toFixed(2);
+    }
+  },
+  methods: {
+    changePlaces() {
+      let temp = this.fromCurrency;
+      this.fromCurrency = this.toCurrency;
+      this.toCurrency = temp;
     }
   }
 };
