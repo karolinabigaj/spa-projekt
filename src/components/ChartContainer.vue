@@ -64,11 +64,11 @@ export default {
                 {
                   label: `${currency}/PLN`,
                   data: mid,
-                  borderColor: "#80b6f4",
-                  pointBorderColor: "#80b6f4",
-                  pointBackgroundColor: "#80b6f4",
-                  pointHoverBackgroundColor: "#80b6f4",
-                  pointHoverBorderColor: "#80b6f4",
+                  borderColor: "#17A2B8",
+                  pointBorderColor: "#17A2B8",
+                  pointBackgroundColor: "#17A2B8",
+                  pointHoverBackgroundColor: "#17A2B8",
+                  pointHoverBorderColor: "#17A2B8",
                   pointBorderWidth: 10,
                   pointHoverRadius: 10,
                   pointHoverBorderWidth: 1,
@@ -90,3 +90,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+  select{
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    justify-content: center;
+  }
+</style>

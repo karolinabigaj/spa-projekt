@@ -15,12 +15,12 @@ header {
   width: 100%;
   margin: 0 auto 0 auto;
   text-align: center;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
 }
 #money {
-  justify-content: flex-start;
-  height: 100px;
-  border-bottom: 1px solid black;
-  padding: 10px;
-  width: 100%;
+  height: 70px;
 }
 </style>

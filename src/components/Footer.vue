@@ -1,10 +1,10 @@
 <template>
   <footer>
     <span>
-      Icons made by
-      <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and
+      Ikony wykonane przez
+      <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> i
       <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a>
-      from
+      od
       <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
     </span>
   </footer>
@@ -20,6 +20,7 @@ export default {
 footer {
   width: 100%;
   text-align: center;
+  margin-top: 3%;
   padding: 10px;
 }
 a {

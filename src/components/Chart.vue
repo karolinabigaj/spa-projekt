@@ -11,3 +11,9 @@ export default {
     }
 }
 </script>
+<style scoped>
+    canvas{
+        margin-top: 2%;
+    }
+</style>
+

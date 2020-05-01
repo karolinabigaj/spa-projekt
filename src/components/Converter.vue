@@ -7,6 +7,8 @@
         <b-col md>
           <b-form-input placeholder="Wprowadź wartość" v-model="input"></b-form-input>
         </b-col>
+      </b-row>
+      <b-row>
         <b-col md>
           <b-form-select
             class="mb-2 mr-sm-2 mb-sm-0"
@@ -15,14 +17,17 @@
             :value="null"
           ></b-form-select>
         </b-col>
+      </b-row>
+      <b-row>
         <b-col md>
-          <b-button
+          <b-button class="btn btn-info btn-lg"
             block
             style="background-color: #17a2b8;"
             @click="changePlaces()"
-          >&#8826;&equals;&equals;&#8827;</b-button>
+          ><img src="../assets/shapes-and-symbols.svg" class="img-fluid" alt="arrows" /></b-button>
         </b-col>
-
+      </b-row>
+      <b-row>
         <b-col md>
           <b-form-select
             class="mb-2 mr-sm-2 mb-sm-0"
@@ -31,18 +36,13 @@
             :value="null"
           ></b-form-select>
         </b-col>
-
-        <br />
-        <b-col v-show="convertedCurrency">
+      </b-row>
+      <b-row>
+        <b-col id="value" v-show="convertedCurrency">
           <strong>Wartość:</strong>
           {{ convertedCurrency }}
         </b-col>
       </b-row>
-      <!-- </b-form> -->
-
-      <br />
-      <br />
-      <br />
     </b-container>
   </div>
 </template>
@@ -113,5 +113,19 @@ export default {
 <style scoped>
 .form {
   text-align: center;
+}
+input,select, button{
+  display: flex;
+  width: 40%;
+  margin-top: 1%;
+  margin-left: 30%;
+  justify-content: center;
+}
+img {
+  width: 6%;
+  height: 6%;
+}
+#value{
+  margin-top: 1%;
 }
 </style>
