@@ -20,11 +20,14 @@
       </b-row>
       <b-row>
         <b-col md>
-          <b-button class="btn btn-info btn-lg"
+          <b-button
+            class="btn btn-info btn-lg"
             block
             style="background-color: #17a2b8;"
             @click="changePlaces()"
-          ><img src="../assets/shapes-and-symbols.svg" class="img-fluid" alt="arrows" /></b-button>
+          >
+            <img src="../assets/shapes-and-symbols.svg" class="img-fluid" alt="arrows" />
+          </b-button>
         </b-col>
       </b-row>
       <b-row>
@@ -39,8 +42,10 @@
       </b-row>
       <b-row>
         <b-col id="value" v-show="convertedCurrency">
-          <strong>Wartość:</strong>
-          {{ convertedCurrency }}
+          {{ input }}
+          <strong>{{ fromCurrency }}</strong>
+          =  {{ convertedCurrency }}
+          <strong>{{ toCurrency }}</strong>
         </b-col>
       </b-row>
     </b-container>
@@ -114,7 +119,9 @@ export default {
 .form {
   text-align: center;
 }
-input,select, button{
+input,
+select,
+button {
   display: flex;
   width: 40%;
   margin-top: 1%;
@@ -125,7 +132,7 @@ img {
   width: 6%;
   height: 6%;
 }
-#value{
+#value {
   margin-top: 1%;
 }
 </style>
