@@ -68,7 +68,12 @@ export default {
         { value: "CNY", text: "Yuan chiński" },
         { value: "SEK", text: "Szwedzka korona" },
         { value: "NZD", text: "Dolar nowozelandzki" },
-        { value: "PLN", text: "Złoty polski" }
+        { value: "PLN", text: "Złoty polski" },
+        { value: "CZK", text: "Korona czeska"},
+        { value: "NOK", text: "Korona norweska"},
+        { value: "MXN", text: "Peso meksykańskie" },
+        { value: "HRK", text: "Kuna chorwacka" },
+        { value: "TRY", text: "Lira turecka" }
       ],
       input: "",
       fromCurrency: "USD",
