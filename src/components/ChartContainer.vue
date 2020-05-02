@@ -38,7 +38,12 @@ export default {
       { value: "CHF", text: "Frank szwajcarski" },
       { value: "CNY", text: "Yuan chiński" },
       { value: "SEK", text: "Szwedzka korona" },
-      { value: "NZD", text: "Dolar nowozelandzki" }
+      { value: "NZD", text: "Dolar nowozelandzki" },
+      { value: "CZK", text: "Korona czeska" },
+      { value: "NOK", text: "Korona norweska" },
+      { value: "MXN", text: "Peso meksykańskie" },
+      { value: "HRK", text: "Kuna chorwacka" },
+      { value: "TRY", text: "Lira turecka" }
     ]
   }),
   methods: {
@@ -91,10 +96,10 @@ export default {
 };
 </script>
 <style scoped>
-  select{
-    display: flex;
-    width: 80%;
-    margin-left: 10%;
-    justify-content: center;
-  }
+select {
+  display: flex;
+  width: 80%;
+  margin-left: 10%;
+  justify-content: center;
+}
 </style>
